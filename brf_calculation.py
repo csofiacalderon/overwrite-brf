@@ -1,3 +1,6 @@
-def calculate_copay_brf(pcp_copays, sps_copays, er_copays, threshold_match_coinsurance, threshold_match_deductible, threshold_match_moop):
+plans = ["plan 1", "plan 2", "plan 3"]
 
-    return 0
+
+
+for plan in plans: 
+    print("plan")

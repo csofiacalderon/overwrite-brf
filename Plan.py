@@ -19,13 +19,13 @@ class Plan:
     def get_plan_id(self):
         return self.plan_id
 
-    def get_base_brf(self, claims_probability_distribution):
+    def get_base_brf(self):
         return self.base_brf
         
     def calculate_base_brf(self, claims_probability_distribution):
-        self.base_brf = ((claims_probability_distribution.apply(self.brf_compute_helper, axis=1).sum())/12)/BASE_RATE
+        self.base_brf = ((claims_probability_distribution.apply(self.base_brf_compute_helper, axis=1).sum())/12)/BASE_RATE
 
-    def brf_compute_helper(self, row):
+    def base_brf_compute_helper(self, row):
         base_val = row["expected base rate claims"]
         freq = row["annual frequency"]
 
@@ -43,6 +43,13 @@ class Plan:
                 value = base_val - self.moop
 
         return value * freq
+
+
+    def calculate_copay_brf(self, pcp_copay, sps_copay, er_copay):
+        return 0 
+
+    def assign_deductible_index(self):
+        
 
 
 
