@@ -2,7 +2,6 @@ import pandas as pd
 import csv 
 import numpy as np
 
-STARTING_POINT = 0
 BASE_RATE = 506.43
 
 def read_threshold_data(file_path):
@@ -86,8 +85,6 @@ def read_claims_probability(file_path):
     Returns:
         DataFrame containing the claims probability data
     """
-    global STARTING_POINT
-    
     #reading in the file using pandas
     df = pd.read_csv(file_path)
     
@@ -95,11 +92,10 @@ def read_claims_probability(file_path):
     df.columns = df.columns.str.strip()
     
     #calculate STARTING_POINT: sum of (annual frequency × total annual claims) / 12
-    STARTING_POINT= ((df['annual frequency'] * df['total annual claims']).sum()) / 12
+    starting_point= ((df['annual frequency'] * df['total annual claims']).sum()) / 12
     # print(STARTING_POINT)
     
-    df['expected base rate claims'] = df['total annual claims'] * BASE_RATE/STARTING_POINT
+    df['expected base rate claims'] = df['total annual claims'] * BASE_RATE/starting_point
 
     
-    return df
-
+    return df, starting_point
