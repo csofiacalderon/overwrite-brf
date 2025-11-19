@@ -12,6 +12,7 @@ A Python system for calculating Benefit Relative Factors (BRF) for health insura
 - **`constants.py`** 📋 - Loads and stores all data tables (thresholds, copays, claims probability)
 - **`main.py`** 🚀 - Main entry point for running BRF calculations
 - **`json_conversions.py`** 🔄 - Auto-sync functionality to keep JSON files updated with CSV changes
+- **`Test.py`** 🧪 - Unit tests for `calculate_group_brf` function, validated against Excel model results
 
 ### Data Directories
 
@@ -28,6 +29,13 @@ Source CSV files (the working data files you edit):
   - `spc_copays.csv` - Specialist copay relativity factors
   - `er_copays.csv` - Emergency Room copay relativity factors
 - **`tests/`** 🧪 - Test plan CSV files for development/testing
+  - `test_1.csv` - Bath & Tennis Club test data
+  - `test_2.csv` - Discovery Marketing and Distributing test data
+  - `test_3.csv` - Harvard Maintenance test data
+- **`excel_models/`** 📊 - Excel model files used for validation
+  - `Bath_&_Tennis_Club_test1.xlsm` - Excel model for test_1.csv
+  - `Discovery_Marketing_and_Distributing_test2.xlsm` - Excel model for test_2.csv
+  - `Harvard_Maintenance_test3.xlsm` - Excel model for test_3.csv
 
 #### `json_files/` 📦
 JSON versions of data files with metadata (auto-generated, audit-ready):
@@ -323,9 +331,46 @@ Every JSON file includes metadata for:
 - **Version control** 🔢
 - **Provenance tracking** 👤
 
+## 🧪 Testing (`Test.py`)
+
+The `Test.py` file contains unit tests that validate the `calculate_group_brf()` function against expected results from Excel models. These tests ensure that the Python implementation produces the same results as the Excel calculations.
+
+### Test Cases
+
+The test suite includes three test cases, each corresponding to a real-world client scenario:
+
+| Test Case | CSV File | Excel Model | Expected BRF | Description |
+|-----------|----------|-------------|--------------|-------------|
+| `test_calculate_group_brf_test1` | `test_1.csv` | `Bath_&_Tennis_Club_test1.xlsm` | **0.735** | Bath & Tennis Club |
+| `test_calculate_group_brf_test2` | `test_2.csv` | `Discovery_Marketing_and_Distributing_test2.xlsm` | **0.678** | Discovery Marketing and Distributing |
+| `test_calculate_group_brf_test3` | `test_3.csv` | `Harvard_Maintenance_test3.xlsm` | **0.757** | Harvard Maintenance |
+
+### Running Tests
+
+**Run all tests:**
+```bash
+python Test.py
+```
+
+**Run with verbose output:**
+```bash
+python -m unittest Test.py -v
+```
+
+### Test Validation
+
+Each test:
+1. ✅ Loads plan data from the corresponding CSV file
+2. ✅ Calculates the group BRF using `calculate_group_brf()`
+3. ✅ Compares the result to the expected value from the Excel model
+4. ✅ Uses `assertAlmostEqual()` with 3 decimal places precision for floating-point comparison
+
+The expected BRF values are derived from the Excel models in `data_files/excel_models/`, ensuring that the Python implementation matches the Excel calculations exactly.
+
 ## 📝 Notes
 
 - CSV files in `data_files/` are the **source of truth** (edit these)
 - JSON files in `json_files/` are **auto-generated** (don't edit manually)
 - Run `json_conversions.py` to sync JSON files when CSV changes
 - All BRF calculations use the `calculate_plan_brf()` method which handles everything automatically
+- Test expected values are validated against Excel models to ensure calculation accuracy
