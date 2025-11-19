@@ -3,7 +3,7 @@ from constants import CLAIMS_PROBABILITY_DISTRIBUTION, PCP_COPAY_DATA, SPC_COPAY
 from data_processing import read_plans_from_csv
 from brf_calculation import calculate_group_brf
 
-plans = read_plans_from_csv('data_files/tests/test_1.csv')
+plans = read_plans_from_csv('data_files/tests/test_3.csv')
 # print(plans)
 group_brf = calculate_group_brf(plans, CLAIMS_PROBABILITY_DISTRIBUTION, 
 DEDUCTIBLE_THRESHOLD_DATA, 
