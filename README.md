@@ -37,6 +37,14 @@ JSON versions of data files with metadata (auto-generated, audit-ready):
 - **`thresholds/`** - JSON versions of threshold files
 - **`copays/`** - JSON versions of copay files
 
+#### `excel_models/` 📦
+Models that we used to test to make sure that the brf calculations are working right
+
+- **`test_1.xlsm`** 
+- **`test_1.xlsm`** 
+-- **`test_1.xlsm`** 
+-- **`test_1.xlsm`** 
+
 ## 🏥 Plan Class (`Plan.py`)
 
 The `Plan` class represents a single health insurance plan and calculates its Benefit Relative Factor (BRF).
