@@ -1,0 +1,12 @@
+{
+  "metadata": {
+    "created_date": "2025-11-19T13:49:18.633509Z",
+    "created_by": "Amy Zhou",
+    "description": "Starting point value calculated from claims probability distribution",
+    "source": "Milliman",
+    "version": "1.0"
+  },
+  "data": {
+    "starting_point": 1273.5802955042466
+  }
+}

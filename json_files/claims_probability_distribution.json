@@ -1,0 +1,496 @@
+{
+  "metadata": {
+    "created_date": "2025-11-19T13:49:18.627514Z",
+    "created_by": "Amy Zhou",
+    "description": "Claims probability distribution data for base BRF calculation",
+    "source": "Milliman",
+    "version": "1.0"
+  },
+  "data": [
+    {
+      "annual frequency": 0.0363986,
+      "total annual claims": 0.0,
+      "expected base rate claims": 0.0
+    },
+    {
+      "annual frequency": 0.0198721,
+      "total annual claims": 21.95063348,
+      "expected base rate claims": 8.728510760191275
+    },
+    {
+      "annual frequency": 0.01432,
+      "total annual claims": 63.2072605,
+      "expected base rate claims": 25.13391032195682
+    },
+    {
+      "annual frequency": 0.0133808,
+      "total annual claims": 121.8518462,
+      "expected base rate claims": 48.45350598537133
+    },
+    {
+      "annual frequency": 0.015849,
+      "total annual claims": 181.1097233,
+      "expected base rate claims": 72.01697254157399
+    },
+    {
+      "annual frequency": 0.0171449,
+      "total annual claims": 237.1875345,
+      "expected base rate claims": 94.315908875833
+    },
+    {
+      "annual frequency": 0.0169441,
+      "total annual claims": 291.5314606,
+      "expected base rate claims": 115.9253783313309
+    },
+    {
+      "annual frequency": 0.0159478,
+      "total annual claims": 344.5800526,
+      "expected base rate claims": 137.01976754369164
+    },
+    {
+      "annual frequency": 0.0147111,
+      "total annual claims": 396.5357345,
+      "expected base rate claims": 157.67956895354257
+    },
+    {
+      "annual frequency": 0.0137503,
+      "total annual claims": 449.3562156,
+      "expected base rate claims": 178.68325151513716
+    },
+    {
+      "annual frequency": 0.0131594,
+      "total annual claims": 503.5283654,
+      "expected base rate claims": 200.22441536641358
+    },
+    {
+      "annual frequency": 0.0250208,
+      "total annual claims": 583.7233914,
+      "expected base rate claims": 232.11338786429607
+    },
+    {
+      "annual frequency": 0.0232805,
+      "total annual claims": 694.4266926,
+      "expected base rate claims": 276.13375550395
+    },
+    {
+      "annual frequency": 0.0216983,
+      "total annual claims": 802.0718598,
+      "expected base rate claims": 318.93807826046066
+    },
+    {
+      "annual frequency": 0.0204174,
+      "total annual claims": 909.4897044,
+      "expected base rate claims": 361.65200782800287
+    },
+    {
+      "annual frequency": 0.019157,
+      "total annual claims": 1012.365279,
+      "expected base rate claims": 402.5597365582518
+    },
+    {
+      "annual frequency": 0.0179658,
+      "total annual claims": 1119.303058,
+      "expected base rate claims": 445.0827715095172
+    },
+    {
+      "annual frequency": 0.0169017,
+      "total annual claims": 1224.856476,
+      "expected base rate claims": 487.0553253142818
+    },
+    {
+      "annual frequency": 0.0158439,
+      "total annual claims": 1330.396717,
+      "expected base rate claims": 529.0226393802302
+    },
+    {
+      "annual frequency": 0.0149474,
+      "total annual claims": 1435.96185,
+      "expected base rate claims": 570.9998515700772
+    },
+    {
+      "annual frequency": 0.0141165,
+      "total annual claims": 1540.357353,
+      "expected base rate claims": 612.511968843655
+    },
+    {
+      "annual frequency": 0.013374,
+      "total annual claims": 1639.183553,
+      "expected base rate claims": 651.8094930301331
+    },
+    {
+      "annual frequency": 0.0126791,
+      "total annual claims": 1743.531133,
+      "expected base rate claims": 693.3025540691132
+    },
+    {
+      "annual frequency": 0.0120505,
+      "total annual claims": 1847.785163,
+      "expected base rate claims": 734.7584156267043
+    },
+    {
+      "annual frequency": 0.0114989,
+      "total annual claims": 1953.124096,
+      "expected base rate claims": 776.6456810213597
+    },
+    {
+      "annual frequency": 0.0110096,
+      "total annual claims": 2049.008945,
+      "expected base rate claims": 814.7735982406223
+    },
+    {
+      "annual frequency": 0.0254626,
+      "total annual claims": 2226.60195,
+      "expected base rate claims": 885.3921731664702
+    },
+    {
+      "annual frequency": 0.0230344,
+      "total annual claims": 2484.470845,
+      "expected base rate claims": 987.9318755753745
+    },
+    {
+      "annual frequency": 0.0209155,
+      "total annual claims": 2742.526152,
+      "expected base rate claims": 1090.5457033688292
+    },
+    {
+      "annual frequency": 0.0191597,
+      "total annual claims": 2998.449812,
+      "expected base rate claims": 1192.31189713872
+    },
+    {
+      "annual frequency": 0.0175961,
+      "total annual claims": 3257.919675,
+      "expected base rate claims": 1295.4882129021983
+    },
+    {
+      "annual frequency": 0.0161612,
+      "total annual claims": 3514.276406,
+      "expected base rate claims": 1397.4266142253186
+    },
+    {
+      "annual frequency": 0.0150295,
+      "total annual claims": 3772.798643,
+      "expected base rate claims": 1500.2261133586449
+    },
+    {
+      "annual frequency": 0.0139391,
+      "total annual claims": 4034.479679,
+      "expected base rate claims": 1604.281686084831
+    },
+    {
+      "annual frequency": 0.0130282,
+      "total annual claims": 4296.675327,
+      "expected base rate claims": 1708.541890553578
+    },
+    {
+      "annual frequency": 0.0121572,
+      "total annual claims": 4557.10781,
+      "expected base rate claims": 1812.1009852029426
+    },
+    {
+      "annual frequency": 0.0113765,
+      "total annual claims": 4817.709843,
+      "expected base rate claims": 1915.7275001844237
+    },
+    {
+      "annual frequency": 0.0106999,
+      "total annual claims": 5081.476496,
+      "expected base rate claims": 2020.6124034373452
+    },
+    {
+      "annual frequency": 0.0195878,
+      "total annual claims": 5475.91216,
+      "expected base rate claims": 2177.4568945343367
+    },
+    {
+      "annual frequency": 0.0174195,
+      "total annual claims": 6013.431564,
+      "expected base rate claims": 2391.1976007376643
+    },
+    {
+      "annual frequency": 0.0156625,
+      "total annual claims": 6551.393625,
+      "expected base rate claims": 2605.1143262978403
+    },
+    {
+      "annual frequency": 0.0141941,
+      "total annual claims": 7091.599078,
+      "expected base rate claims": 2819.9231204732196
+    },
+    {
+      "annual frequency": 0.0129469,
+      "total annual claims": 7641.844243,
+      "expected base rate claims": 3038.7241335657
+    },
+    {
+      "annual frequency": 0.0118281,
+      "total annual claims": 8190.049484,
+      "expected base rate claims": 3256.71398562266
+    },
+    {
+      "annual frequency": 0.0108713,
+      "total annual claims": 8740.207781,
+      "expected base rate claims": 3475.480456282759
+    },
+    {
+      "annual frequency": 0.0100412,
+      "total annual claims": 9283.031024,
+      "expected base rate claims": 3691.3301957321655
+    },
+    {
+      "annual frequency": 0.0093035,
+      "total annual claims": 9826.999965,
+      "expected base rate claims": 3907.6355137110054
+    },
+    {
+      "annual frequency": 0.008616,
+      "total annual claims": 10389.35734,
+      "expected base rate claims": 4131.252859571788
+    },
+    {
+      "annual frequency": 0.0155147,
+      "total annual claims": 11206.35255,
+      "expected base rate claims": 4456.125100184213
+    },
+    {
+      "annual frequency": 0.0136019,
+      "total annual claims": 12307.73547,
+      "expected base rate claims": 4894.082058331685
+    },
+    {
+      "annual frequency": 0.0120063,
+      "total annual claims": 13404.9197,
+      "expected base rate claims": 5330.369437745721
+    },
+    {
+      "annual frequency": 0.0106732,
+      "total annual claims": 14519.12988,
+      "expected base rate claims": 5773.427063126137
+    },
+    {
+      "annual frequency": 0.0095152,
+      "total annual claims": 15679.08398,
+      "expected base rate claims": 6234.674427690943
+    },
+    {
+      "annual frequency": 0.0198031,
+      "total annual claims": 17609.92364,
+      "expected base rate claims": 7002.458863792514
+    },
+    {
+      "annual frequency": 0.0158102,
+      "total annual claims": 20547.03718,
+      "expected base rate claims": 8170.380835664165
+    },
+    {
+      "annual frequency": 0.0129028,
+      "total annual claims": 23567.75083,
+      "expected base rate claims": 9371.54578707684
+    },
+    {
+      "annual frequency": 0.0108218,
+      "total annual claims": 26637.06791,
+      "expected base rate claims": 10592.03754115896
+    },
+    {
+      "annual frequency": 0.009265,
+      "total annual claims": 29789.15767,
+      "expected base rate claims": 11845.44325322266
+    },
+    {
+      "annual frequency": 0.0080134,
+      "total annual claims": 32943.30777,
+      "expected base rate claims": 13099.668244596733
+    },
+    {
+      "annual frequency": 0.0131354,
+      "total annual claims": 37651.12834,
+      "expected base rate claims": 14971.69906957203
+    },
+    {
+      "annual frequency": 0.0103034,
+      "total annual claims": 44026.38345,
+      "expected base rate claims": 17506.77318838053
+    },
+    {
+      "annual frequency": 0.0082545,
+      "total annual claims": 50318.92397,
+      "expected base rate claims": 20008.95644827612
+    },
+    {
+      "annual frequency": 0.0067446,
+      "total annual claims": 56678.97526,
+      "expected base rate claims": 22537.984877943716
+    },
+    {
+      "annual frequency": 0.0055981,
+      "total annual claims": 62940.15578,
+      "expected base rate claims": 25027.69806048646
+    },
+    {
+      "annual frequency": 0.0046852,
+      "total annual claims": 69278.85681,
+      "expected base rate claims": 27548.23671356912
+    },
+    {
+      "annual frequency": 0.003975,
+      "total annual claims": 75413.5033,
+      "expected base rate claims": 29987.634553577824
+    },
+    {
+      "annual frequency": 0.0033996,
+      "total annual claims": 81783.55864,
+      "expected base rate claims": 32520.641021425963
+    },
+    {
+      "annual frequency": 0.002971,
+      "total annual claims": 88170.53489,
+      "expected base rate claims": 35060.37596684363
+    },
+    {
+      "annual frequency": 0.0026402,
+      "total annual claims": 94314.78422,
+      "expected base rate claims": 37503.59230677602
+    },
+    {
+      "annual frequency": 0.0043831,
+      "total annual claims": 103406.0257,
+      "expected base rate claims": 41118.6587764512
+    },
+    {
+      "annual frequency": 0.0034884,
+      "total annual claims": 116083.7339,
+      "expected base rate claims": 46159.85781697498
+    },
+    {
+      "annual frequency": 0.0050069,
+      "total annual claims": 134629.4717,
+      "expected base rate claims": 53534.43641811091
+    },
+    {
+      "annual frequency": 0.0033741,
+      "total annual claims": 160141.0849,
+      "expected base rate claims": 63678.94502780219
+    },
+    {
+      "annual frequency": 0.0024251,
+      "total annual claims": 184674.5913,
+      "expected base rate claims": 73434.51653751436
+    },
+    {
+      "annual frequency": 0.0018038,
+      "total annual claims": 207209.5284,
+      "expected base rate claims": 82395.37140927925
+    },
+    {
+      "annual frequency": 0.0013729,
+      "total annual claims": 230164.3515,
+      "expected base rate claims": 91523.19091431508
+    },
+    {
+      "annual frequency": 0.0010946,
+      "total annual claims": 252109.3596,
+      "expected base rate claims": 100249.4647828055
+    },
+    {
+      "annual frequency": 0.0008863,
+      "total annual claims": 273733.2164,
+      "expected base rate claims": 108848.03515789773
+    },
+    {
+      "annual frequency": 0.0011864,
+      "total annual claims": 303076.1805,
+      "expected base rate claims": 120516.05276277079
+    },
+    {
+      "annual frequency": 0.0011632,
+      "total annual claims": 350003.5477,
+      "expected base rate claims": 139176.3811731492
+    },
+    {
+      "annual frequency": 0.0007881,
+      "total annual claims": 404335.3241,
+      "expected base rate claims": 160781.01938825127
+    },
+    {
+      "annual frequency": 0.0005668,
+      "total annual claims": 457157.6963,
+      "expected base rate claims": 181785.4539320933
+    },
+    {
+      "annual frequency": 0.0004135,
+      "total annual claims": 508604.2313,
+      "expected base rate claims": 202242.7967569008
+    },
+    {
+      "annual frequency": 0.0004529,
+      "total annual claims": 572812.9101,
+      "expected base rate claims": 227774.9138283333
+    },
+    {
+      "annual frequency": 0.000394,
+      "total annual claims": 670449.1344,
+      "expected base rate claims": 266599.2527779807
+    },
+    {
+      "annual frequency": 0.0002586,
+      "total annual claims": 780337.6148,
+      "expected base rate claims": 310295.61281544366
+    },
+    {
+      "annual frequency": 0.0001793,
+      "total annual claims": 892889.1183,
+      "expected base rate claims": 355050.90474223753
+    },
+    {
+      "annual frequency": 0.0001349,
+      "total annual claims": 1003086.274,
+      "expected base rate claims": 398870.0072818661
+    },
+    {
+      "annual frequency": 0.0002489,
+      "total annual claims": 1207385.892,
+      "expected base rate claims": 480108.2738512903
+    },
+    {
+      "annual frequency": 0.000171,
+      "total annual claims": 1630069.15,
+      "expected base rate claims": 648185.2165494243
+    },
+    {
+      "annual frequency": 6.59e-05,
+      "total annual claims": 2200723.984,
+      "expected base rate claims": 875101.9870135891
+    },
+    {
+      "annual frequency": 1.74e-05,
+      "total annual claims": 2761682.605,
+      "expected base rate claims": 1098163.1284554424
+    },
+    {
+      "annual frequency": 7.9e-06,
+      "total annual claims": 3326198.223,
+      "expected base rate claims": 1322638.6840469718
+    },
+    {
+      "annual frequency": 4e-06,
+      "total annual claims": 3889783.691,
+      "expected base rate claims": 1546744.3722134454
+    },
+    {
+      "annual frequency": 3.2e-06,
+      "total annual claims": 4571752.604,
+      "expected base rate claims": 1817924.3816951783
+    },
+    {
+      "annual frequency": 3.4e-06,
+      "total annual claims": 6298764.542,
+      "expected base rate claims": 2504658.197261206
+    },
+    {
+      "annual frequency": 5e-07,
+      "total annual claims": 12892246.47,
+      "expected base rate claims": 5126508.633063513
+    }
+  ]
+}

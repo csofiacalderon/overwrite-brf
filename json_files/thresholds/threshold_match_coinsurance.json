@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "created_date": "2025-11-19T13:59:02.253294Z",
+    "created_by": "Amy Zhou",
+    "description": "Coinsurance threshold ranges for BRF calculation",
+    "source": "Curative Inc",
+    "version": "1.2"
+  },
+  "data": {
+    "1": [
+      0,
+      0.2
+    ],
+    "2": [
+      0.2,
+      0.5
+    ],
+    "3": [
+      0.5,
+      1
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "metadata": {
+    "created_date": "2025-11-19T13:49:18.590451Z",
+    "created_by": "Amy Zhou",
+    "description": "MOOP (Maximum Out-of-Pocket) threshold ranges for BRF calculation",
+    "source": "Curative Inc",
+    "version": "1.0"
+  },
+  "data": {
+    "1": [
+      0,
+      7500
+    ],
+    "2": [
+      7500,
+      50000
+    ]
+  }
+}
