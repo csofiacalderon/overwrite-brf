@@ -18,6 +18,13 @@ class Plan:
         self.copay_brf = None
         self.plan_brf = None
 
+        #enrollment data
+        self.ee_enrollment = None
+        self.spouse_enrollment = None
+        self.children_enrollment = None
+        self.family_enrollment = None
+        self.total_enrollment = self._calculate_total_enrollment()
+
     #getter methods
     def get_plan_id(self):
         """Returns the plan ID."""
@@ -122,15 +129,39 @@ class Plan:
         return copay_brf
 
     #plan brf calculation methods
-    def calculate_plan_brf(self):
+    def calculate_plan_brf(self, claims_probability_distribution, deductible_threshold_data, 
+                          coinsurance_threshold_data, moop_threshold_data, 
+                          pcp_copay_data, sps_copay_data, er_copay_data):
         """
-        Calculate the final plan BRF by multiplying base BRF and copay BRF.
-        """
-        if self.base_brf is None:
-            raise ValueError("Base BRF must be calculated first. Call calculate_base_brf() before calculate_plan_brf()")
-        if self.copay_brf is None:
-            raise ValueError("Copay BRF must be calculated first. Call calculate_copay_brf() before calculate_plan_brf()")
+        Calculate the final plan BRF by automatically computing all intermediate steps.
+        This method handles the complete calculation pipeline:
+        1. Calculate indices (deductible, moop, coinsurance)
+        2. Calculate base BRF
+        3. Calculate copay BRF
+        4. Calculate final plan BRF
         
+        Args:
+            claims_probability_distribution: DataFrame with claims probability data
+            deductible_threshold_data: Dictionary with deductible threshold ranges
+            coinsurance_threshold_data: Dictionary with coinsurance threshold ranges
+            moop_threshold_data: Dictionary with MOOP threshold ranges
+            pcp_copay_data: 2D dictionary with PCP copay relativity data
+            sps_copay_data: 2D dictionary with SPS copay relativity data
+            er_copay_data: 2D dictionary with ER copay relativity data
+        
+        Returns:
+            The calculated plan BRF value
+        """
+        #step 1: calculate indices (needed for copay brf calculation)
+        self.calculate_indices(deductible_threshold_data, coinsurance_threshold_data, moop_threshold_data)
+        
+        #step 2: calculate base brf
+        self.calculate_base_brf(claims_probability_distribution)
+        
+        #step 3: calculate copay brf (requires indices from step 1)
+        self.calculate_copay_brf(pcp_copay_data, sps_copay_data, er_copay_data)
+        
+        #step 4: calculate final plan brf
         self.plan_brf = self.base_brf * self.copay_brf
         return self.plan_brf
 
@@ -151,7 +182,22 @@ class Plan:
                 return index
         return None
 
-    def caculate_enrollment_weight(self, enrollment_weight_data):
-        pass
+    def _calculate_total_enrollment(self):
+        """
+        Returns the total enrollment.
+        """
+        total_enrollment = 0
+        if self.ee_enrollment is not None:
+            total_enrollment += self.ee_enrollment
+        if self.spouse_enrollment is not None:
+            total_enrollment += self.spouse_enrollment
+        if self.children_enrollment is not None:
+            total_enrollment += self.children_enrollment
+        if self.family_enrollment is not None:
+            total_enrollment += self.family_enrollment
+        return total_enrollment
+
+    def calculate_enrollment_weight(self, enrollment_weight_data):
+        return self.total_enrollment * self.plan_brf
         
     
