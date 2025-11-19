@@ -1,3 +1,6 @@
+#if you want to see it more in the terminal, you can run this file
+
+
 from Plan import Plan
 from constants import CLAIMS_PROBABILITY_DISTRIBUTION, PCP_COPAY_DATA, SPC_COPAY_DATA, ER_COPAY_DATA, COINSURANCE_THRESHOLD_DATA, DEDUCTIBLE_THRESHOLD_DATA, MOOP_THRESHOLD_DATA
 from data_processing import read_plans_from_csv
