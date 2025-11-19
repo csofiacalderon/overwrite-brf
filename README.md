@@ -41,9 +41,9 @@ JSON versions of data files with metadata (auto-generated, audit-ready):
 Models that we used to test to make sure that the brf calculations are working right
 
 - **`test_1.xlsm`** 
+- **`test_1.xlsm`**
+-  **`test_1.xlsm`**
 - **`test_1.xlsm`** 
--- **`test_1.xlsm`** 
--- **`test_1.xlsm`** 
 
 ## 🏥 Plan Class (`Plan.py`)
 
