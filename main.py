@@ -1,15 +1,16 @@
 from Plan import Plan
 from constants import CLAIMS_PROBABILITY_DISTRIBUTION, PCP_COPAY_DATA, SPS_COPAY_DATA, ER_COPAY_DATA, COINSURANCE_THRESHOLD_DATA, DEDUCTIBLE_THRESHOLD_DATA, MOOP_THRESHOLD_DATA
+from data_processing import read_plans_from_csv
+from brf_calculation import calculate_group_brf
 
-test_plan = Plan(1, 'Plan 1', 1500, 0.2, 4500, 30, 55, 250)
+plans = read_plans_from_csv('data_files/sample_plans.csv')
+# print(plans)
+group_brf = calculate_group_brf(plans, CLAIMS_PROBABILITY_DISTRIBUTION, 
+DEDUCTIBLE_THRESHOLD_DATA, 
+COINSURANCE_THRESHOLD_DATA, 
+MOOP_THRESHOLD_DATA, 
+PCP_COPAY_DATA, 
+SPS_COPAY_DATA, 
+ER_COPAY_DATA)
 
-#now you only need to call calculate_plan_brf with all the data
-print(test_plan.calculate_plan_brf(
-    CLAIMS_PROBABILITY_DISTRIBUTION,
-    DEDUCTIBLE_THRESHOLD_DATA,
-    COINSURANCE_THRESHOLD_DATA,
-    MOOP_THRESHOLD_DATA,
-    PCP_COPAY_DATA,
-    SPS_COPAY_DATA,
-    ER_COPAY_DATA
-))
+print(group_brf)

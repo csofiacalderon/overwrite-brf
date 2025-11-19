@@ -1,7 +1,9 @@
 from data_processing import BASE_RATE
 
 class Plan:
-    def __init__(self, plan_id, plan_name, deductible, coinsurance, moop, pcp_copay = None, sps_copay = None, er_copay = None):
+    def __init__(self, plan_id, plan_name, deductible, coinsurance, moop, 
+                 pcp_copay=None, sps_copay=None, er_copay=None,
+                 ee_enrollment=None, spouse_enrollment=None, children_enrollment=None, family_enrollment=None):
         self.plan_id = plan_id
         self.plan_name = plan_name
         self.deductible = deductible
@@ -19,10 +21,10 @@ class Plan:
         self.plan_brf = None
 
         #enrollment data
-        self.ee_enrollment = None
-        self.spouse_enrollment = None
-        self.children_enrollment = None
-        self.family_enrollment = None
+        self.ee_enrollment = ee_enrollment
+        self.spouse_enrollment = spouse_enrollment
+        self.children_enrollment = children_enrollment
+        self.family_enrollment = family_enrollment
         self.total_enrollment = self._calculate_total_enrollment()
 
     #getter methods
@@ -196,6 +198,28 @@ class Plan:
         if self.family_enrollment is not None:
             total_enrollment += self.family_enrollment
         return total_enrollment
+
+    def update_enrollment(self, ee_enrollment=None, spouse_enrollment=None, 
+                          children_enrollment=None, family_enrollment=None):
+        """
+        Update enrollment values and recalculate total enrollment.
+        Args:
+            ee_enrollment: Employee enrollment (optional)
+            spouse_enrollment: Spouse enrollment (optional)
+            children_enrollment: Children enrollment (optional)
+            family_enrollment: Family enrollment (optional)
+        """
+        if ee_enrollment is not None:
+            self.ee_enrollment = ee_enrollment
+        if spouse_enrollment is not None:
+            self.spouse_enrollment = spouse_enrollment
+        if children_enrollment is not None:
+            self.children_enrollment = children_enrollment
+        if family_enrollment is not None:
+            self.family_enrollment = family_enrollment
+        
+        #recalculate total enrollment
+        self.total_enrollment = self._calculate_total_enrollment()
 
     def calculate_enrollment_weight(self, enrollment_weight_data):
         return self.total_enrollment * self.plan_brf

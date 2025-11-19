@@ -99,3 +99,74 @@ def read_claims_probability(file_path):
 
     
     return df, starting_point
+
+def read_plan_data(file_path):
+    """
+    Read plan data from a CSV file and return a DataFrame.
+    Args:
+        file_path: Path to the CSV file containing plan data
+    Returns:
+        DataFrame containing the plan data
+    """
+    #reading in the file using pandas
+    df = pd.read_csv(file_path)
+    return df
+
+def read_plans_from_csv(file_path):
+    """
+    Read plan data from a CSV file and return a list of Plan objects.
+    Args:
+        file_path: Path to the CSV file containing plan data
+        Expected columns: plan_name, deductible, coinsurance, moop, pcp, sps, er, ee, es, ec, ef
+    Returns:
+        List of Plan objects
+    """
+    from Plan import Plan
+    
+    #reading in the file using pandas
+    df = pd.read_csv(file_path)
+    
+    #clean column names in case there are spaces
+    df.columns = df.columns.str.strip()
+    
+    plans = []
+    for _, row in df.iterrows():
+        #get plan name (first column, might be unnamed - pandas names it 'Unnamed: 0' or we use iloc)
+        first_col = df.columns[0]
+        plan_name = str(row[first_col]) if pd.notna(row[first_col]) else f"plan_{len(plans) + 1}"
+        
+        #extract plan attributes, handling NaN values
+        deductible = float(row['deductible']) if pd.notna(row['deductible']) else 0
+        coinsurance = float(row['coinsurance']) if pd.notna(row['coinsurance']) else 0
+        moop = float(row['moop']) if pd.notna(row['moop']) else 0
+        
+        #copays (optional)
+        pcp_copay = int(row['pcp']) if pd.notna(row['pcp']) and str(row['pcp']).strip() != '' else None
+        sps_copay = int(row['sps']) if pd.notna(row['sps']) and str(row['sps']).strip() != '' else None
+        er_copay = int(row['er']) if pd.notna(row['er']) and str(row['er']).strip() != '' else None
+        
+        #enrollment data (optional)
+        ee_enrollment = int(row['ee']) if pd.notna(row['ee']) and str(row['ee']).strip() != '' else None
+        spouse_enrollment = int(row['es']) if pd.notna(row['es']) and str(row['es']).strip() != '' else None
+        children_enrollment = int(row['ec']) if pd.notna(row['ec']) and str(row['ec']).strip() != '' else None
+        family_enrollment = int(row['ef']) if pd.notna(row['ef']) and str(row['ef']).strip() != '' else None
+        
+        #create plan object with all parameters
+        plan = Plan(
+            plan_id=len(plans) + 1,
+            plan_name=plan_name,
+            deductible=deductible,
+            coinsurance=coinsurance,
+            moop=moop,
+            pcp_copay=pcp_copay,
+            sps_copay=sps_copay,
+            er_copay=er_copay,
+            ee_enrollment=ee_enrollment,
+            spouse_enrollment=spouse_enrollment,
+            children_enrollment=children_enrollment,
+            family_enrollment=family_enrollment
+        )
+        
+        plans.append(plan)
+    
+    return plans
