@@ -7,4 +7,3 @@ ER_COPAY_DATA = read_copay_data('data_files/er_copays.csv')
 COINSURANCE_THRESHOLD_DATA = read_threshold_data('data_files/threshold_match_coinsurance.csv')
 DEDUCTIBLE_THRESHOLD_DATA = read_threshold_data('data_files/threshold_match_deductible.csv')
 MOOP_THRESHOLD_DATA = read_threshold_data('data_files/threshold_match_moop.csv')
-
