@@ -344,7 +344,7 @@ The `Test.py` file contains unit tests that validate the `calculate_group_brf()`
 
 ### Test Cases
 
-The test suite includes three test cases, each corresponding to a real-world client scenario:
+The test suite includes three test cases, each corresponding to an excel model that is found in excel_models folder. All three passed, results can be seen by the successful run of the Test.py file:
 
 | Test Case | CSV File | Excel Model | Expected BRF | Description |
 |-----------|----------|-------------|--------------|-------------|
