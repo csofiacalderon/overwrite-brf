@@ -13,6 +13,7 @@ A Python system for calculating Benefit Relative Factors (BRF) for health insura
 - **`main.py`** 🚀 - Main entry point for running BRF calculations
 - **`json_conversions.py`** 🔄 - Auto-sync functionality to keep JSON files updated with CSV changes
 - **`Test.py`** 🧪 - Unit tests for `calculate_group_brf` function, validated against Excel model results
+- **`TestPlan.py`** 🧪 - Comprehensive unit tests for `Plan` class methods and intermediate calculations
 
 ### Data Directories
 
@@ -44,13 +45,6 @@ JSON versions of data files with metadata (auto-generated, audit-ready):
 - **`starting_point.json`** - Calculated starting point value with metadata
 - **`thresholds/`** - JSON versions of threshold files
 - **`copays/`** - JSON versions of copay files
-
-#### `excel_models/` 📦
-Models that we used to test to make sure that the brf calculations are working right
-
-- **`Bath_&_Tennis_Club_test1.xlsm`** 
-- **`Discovery_Marketing_and_Distributing_test2.xlsm`**
--  **`Harvard_Maintenance_test3.xlsm`**
 
 ## 🏥 Plan Class (`Plan.py`)
 
@@ -344,7 +338,7 @@ The `Test.py` file contains unit tests that validate the `calculate_group_brf()`
 
 ### Test Cases
 
-The test suite includes three test cases, each corresponding to an excel model that is found in excel_models folder. All three passed, results can be seen by the successful run of the Test.py file:
+The test suite includes three test cases, each corresponding to a real-world client scenario:
 
 | Test Case | CSV File | Excel Model | Expected BRF | Description |
 |-----------|----------|-------------|--------------|-------------|
@@ -373,6 +367,81 @@ Each test:
 4. ✅ Uses `assertAlmostEqual()` with 3 decimal places precision for floating-point comparison
 
 The expected BRF values are derived from the Excel models in `data_files/excel_models/`, ensuring that the Python implementation matches the Excel calculations exactly.
+
+## 🧪 Plan Class Testing (`TestPlan.py`)
+
+The `TestPlan.py` file contains comprehensive unit tests for the `Plan` class, testing all intermediate calculations that lead up to the final BRF calculation. These tests verify that each component of the BRF calculation pipeline works correctly.
+
+### Test Coverage
+
+The test suite covers:
+
+#### Plan Initialization & Attributes
+- ✅ Plan object initialization with all parameters
+- ✅ Optional copay handling
+- ✅ Getter methods (`get_plan_id()`, `get_base_brf()`, `get_plan_brf()`)
+
+#### Enrollment Calculations
+- ✅ Total enrollment calculation with all enrollment types
+- ✅ Partial enrollment scenarios
+- ✅ Enrollment updates and recalculation
+- ✅ **Exact enrollment values from test CSV files** (e.g., plan_1: 37, plan_2: 7, plan_3: 2, plan_4: 31)
+
+#### Index Calculations
+- ✅ Deductible, coinsurance, and MOOP index calculations
+- ✅ Base plan index generation (three-digit format)
+- ✅ Index validation and error handling
+- ✅ **Specific index values for known plan parameters**
+
+#### Base BRF Calculation
+- ✅ Base BRF calculation with different plan designs
+- ✅ Zero coinsurance handling
+- ✅ **Specific base BRF values for test plans**
+- ✅ Value range validation
+
+#### Copay Relativity & BRF
+- ✅ Copay relativity lookup from copay tables
+- ✅ Copay BRF calculation with all copay types
+- ✅ Plans with no copays (copay_brf = 1.0)
+- ✅ **Verification that plans without copays have copay_brf = 1.0**
+
+#### Full Plan BRF Calculation
+- ✅ Complete calculation pipeline verification
+- ✅ **Formula verification: `plan_brf = base_brf × copay_brf`**
+- ✅ Multiple plan scenarios
+- ✅ Real-world plan data from CSV files
+
+#### Enrollment Weight
+- ✅ Enrollment weight calculation (`total_enrollment × plan_brf`)
+- ✅ Zero enrollment handling
+
+### Running Tests
+
+**Run all Plan tests:**
+```bash
+python TestPlan.py
+```
+
+**Run with verbose output:**
+```bash
+python -m unittest TestPlan.py -v
+```
+
+**Run both test suites:**
+```bash
+python -m unittest Test.py TestPlan.py -v
+```
+
+### Test Validation
+
+The tests use `assertEqual()` and `assertAlmostEqual()` with specific expected values to verify:
+- ✅ Exact enrollment calculations match expected totals
+- ✅ Plan BRF formula is correctly applied: `plan_brf = base_brf × copay_brf`
+- ✅ Plans with no copays correctly return `copay_brf = 1.0`
+- ✅ All intermediate values are calculated and stored correctly
+- ✅ Index calculations produce valid three-digit base plan indices
+
+These tests ensure that each step of the BRF calculation process works independently and correctly, providing confidence that the overall calculation is accurate.
 
 ## 📝 Notes
 
