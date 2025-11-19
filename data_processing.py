@@ -1,6 +1,9 @@
 import pandas as pd
 import csv 
 import numpy as np
+import json
+import os
+from datetime import datetime
 
 BASE_RATE = 506.43
 
@@ -158,3 +161,131 @@ def read_plans_from_csv(file_path):
         plans.append(plan)
     
     return plans
+
+#json write functions with metadata support
+def write_threshold_data_json(data_dict, file_path, created_by=None, created_date=None, description=None, source=None, version=None):
+    """
+    Write threshold data to a JSON file with metadata.
+    Args:
+        data_dict: Dictionary with threshold data
+        file_path: Path to write the JSON file
+        created_by: Name of person creating the file
+        created_date: ISO format date string (optional, defaults to current time)
+        description: Description of the data
+        source: Source of the data
+        version: Version identifier
+    """
+    #convert tuples to lists for JSON serialization
+    json_data_dict = {}
+    for key, value in data_dict.items():
+        json_data_dict[str(key)] = list(value)
+    
+    if created_date is None:
+        created_date = datetime.now().isoformat() + "Z"
+    
+    json_data = {
+        "metadata": {
+            "created_date": created_date,
+            "created_by": created_by,
+            "description": description,
+            "source": source,
+            "version": version
+        },
+        "data": json_data_dict
+    }
+    
+    #ensure directory exists
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+    
+    with open(file_path, 'w') as f:
+        json.dump(json_data, f, indent=2)
+
+def write_copay_data_json(data_dict, file_path, created_by=None, created_date=None, description=None, source=None, version=None):
+    """
+    Write copay data to a JSON file with metadata.
+    Args:
+        data_dict: 2D dictionary with copay data
+        file_path: Path to write the JSON file
+        created_by: Name of person creating the file
+        created_date: ISO format date string (optional, defaults to current time)
+        description: Description of the data
+        source: Source of the data
+        version: Version identifier
+    """
+    #convert nested dict keys to strings for JSON
+    json_data_dict = {}
+    for col_index, copay_dict in data_dict.items():
+        json_data_dict[str(col_index)] = {str(k): float(v) for k, v in copay_dict.items()}
+    
+    if created_date is None:
+        created_date = datetime.now().isoformat() + "Z"
+    
+    json_data = {
+        "metadata": {
+            "created_date": created_date,
+            "created_by": created_by,
+            "description": description,
+            "source": source,
+            "version": version
+        },
+        "data": json_data_dict
+    }
+    
+    #ensure directory exists
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+    
+    with open(file_path, 'w') as f:
+        json.dump(json_data, f, indent=2)
+
+def write_dataframe_json(df, file_path, created_by=None, created_date=None, description=None, source=None, version=None):
+    """
+    Write DataFrame to a JSON file with metadata.
+    Args:
+        df: DataFrame to write
+        file_path: Path to write the JSON file
+        created_by: Name of person creating the file
+        created_date: ISO format date string (optional, defaults to current time)
+        description: Description of the data
+        source: Source of the data
+        version: Version identifier
+    """
+    #convert DataFrame to dictionary (records format)
+    data_dict = df.to_dict('records')
+    
+    if created_date is None:
+        created_date = datetime.now().isoformat() + "Z"
+    
+    json_data = {
+        "metadata": {
+            "created_date": created_date,
+            "created_by": created_by,
+            "description": description,
+            "source": source,
+            "version": version
+        },
+        "data": data_dict
+    }
+    
+    #ensure directory exists
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+    
+    with open(file_path, 'w') as f:
+        json.dump(json_data, f, indent=2, default=str)
+
+def read_json_metadata(file_path):
+    """
+    Read metadata from a JSON file without loading the full data.
+    Args:
+        file_path: Path to JSON file
+    Returns:
+        Dictionary with metadata, or None if file doesn't exist
+    """
+    if not os.path.exists(file_path):
+        return None
+    
+    try:
+        with open(file_path, 'r') as f:
+            json_data = json.load(f)
+        return json_data.get('metadata', {})
+    except:
+        return None
