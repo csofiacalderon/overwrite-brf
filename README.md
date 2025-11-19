@@ -40,10 +40,9 @@ JSON versions of data files with metadata (auto-generated, audit-ready):
 #### `excel_models/` 📦
 Models that we used to test to make sure that the brf calculations are working right
 
-- **`test_1.xlsm`** 
-- **`test_1.xlsm`**
--  **`test_1.xlsm`**
-- **`test_1.xlsm`** 
+- **`Bath_&_Tennis_Club_test1.xlsm`** 
+- **`Discovery_Marketing_and_Distributing_test2.xlsm`**
+-  **`Harvard_Maintenance_test3.xlsm`**
 
 ## 🏥 Plan Class (`Plan.py`)
 
