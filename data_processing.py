@@ -100,18 +100,6 @@ def read_claims_probability(file_path):
     
     return df, starting_point
 
-def read_plan_data(file_path):
-    """
-    Read plan data from a CSV file and return a DataFrame.
-    Args:
-        file_path: Path to the CSV file containing plan data
-    Returns:
-        DataFrame containing the plan data
-    """
-    #reading in the file using pandas
-    df = pd.read_csv(file_path)
-    return df
-
 def read_plans_from_csv(file_path):
     """
     Read plan data from a CSV file and return a list of Plan objects.
@@ -146,10 +134,10 @@ def read_plans_from_csv(file_path):
         er_copay = int(row['er']) if pd.notna(row['er']) and str(row['er']).strip() != '' else None
         
         #enrollment data (optional)
-        ee_enrollment = int(row['ee']) if pd.notna(row['ee']) and str(row['ee']).strip() != '' else None
-        spouse_enrollment = int(row['es']) if pd.notna(row['es']) and str(row['es']).strip() != '' else None
-        children_enrollment = int(row['ec']) if pd.notna(row['ec']) and str(row['ec']).strip() != '' else None
-        family_enrollment = int(row['ef']) if pd.notna(row['ef']) and str(row['ef']).strip() != '' else None
+        ee_enrollment = int(row['ee']) if pd.notna(row['ee']) and str(row['ee']).strip() != '' else 0
+        spouse_enrollment = int(row['es']) if pd.notna(row['es']) and str(row['es']).strip() != '' else 0
+        children_enrollment = int(row['ec']) if pd.notna(row['ec']) and str(row['ec']).strip() != '' else 0
+        family_enrollment = int(row['ef']) if pd.notna(row['ef']) and str(row['ef']).strip() != '' else 0
         
         #create plan object with all parameters
         plan = Plan(
