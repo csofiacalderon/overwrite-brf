@@ -97,8 +97,7 @@ def read_claims_probability(file_path):
     #calculate STARTING_POINT: sum of (annual frequency × total annual claims) / 12
     STARTING_POINT= ((df['annual frequency'] * df['total annual claims']).sum()) / 12
     # print(STARTING_POINT)
-
-    #calculate the base rate column * BASE_RATE/d
+    
     df['expected base rate claims'] = df['total annual claims'] * BASE_RATE/STARTING_POINT
 
     
