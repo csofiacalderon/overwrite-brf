@@ -12,7 +12,6 @@ class Plan:
         self.pcp_copay = pcp_copay
         self.spc_copay = spc_copay
         self.er_copay = er_copay
-        self.annual_rate = None
         self.base_brf = None
         self.deductible_index = None
         self.coinsurance_index = None
@@ -221,7 +220,12 @@ class Plan:
         #recalculate total enrollment
         self.total_enrollment = self._calculate_total_enrollment()
 
-    def calculate_enrollment_weight(self, enrollment_weight_data):
+    def calculate_enrollment_weight(self):
+        """
+        Calculate enrollment weight (total enrollment × plan BRF).
+        Returns:
+            The enrollment weight value
+        """
         return self.total_enrollment * self.plan_brf
         
     
