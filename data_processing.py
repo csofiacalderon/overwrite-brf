@@ -105,7 +105,7 @@ def read_plans_from_csv(file_path):
     Read plan data from a CSV file and return a list of Plan objects.
     Args:
         file_path: Path to the CSV file containing plan data
-        Expected columns: plan_name, deductible, coinsurance, moop, pcp, sps, er, ee, es, ec, ef
+        Expected columns: plan_name, deductible, coinsurance, moop, pcp, spc, er, ee, es, ec, ef
     Returns:
         List of Plan objects
     """
@@ -130,7 +130,7 @@ def read_plans_from_csv(file_path):
         
         #copays (optional)
         pcp_copay = int(row['pcp']) if pd.notna(row['pcp']) and str(row['pcp']).strip() != '' else None
-        sps_copay = int(row['sps']) if pd.notna(row['sps']) and str(row['sps']).strip() != '' else None
+        spc_copay = int(row['spc']) if pd.notna(row['spc']) and str(row['spc']).strip() != '' else None
         er_copay = int(row['er']) if pd.notna(row['er']) and str(row['er']).strip() != '' else None
         
         #enrollment data (optional)
@@ -147,7 +147,7 @@ def read_plans_from_csv(file_path):
             coinsurance=coinsurance,
             moop=moop,
             pcp_copay=pcp_copay,
-            sps_copay=sps_copay,
+            spc_copay=spc_copay,
             er_copay=er_copay,
             ee_enrollment=ee_enrollment,
             spouse_enrollment=spouse_enrollment,

@@ -2,7 +2,7 @@ from data_processing import BASE_RATE
 
 class Plan:
     def __init__(self, plan_id, plan_name, deductible, coinsurance, moop, 
-                 pcp_copay=None, sps_copay=None, er_copay=None,
+                 pcp_copay=None, spc_copay=None, er_copay=None,
                  ee_enrollment=None, spouse_enrollment=None, children_enrollment=None, family_enrollment=None):
         self.plan_id = plan_id
         self.plan_name = plan_name
@@ -10,7 +10,7 @@ class Plan:
         self.coinsurance = coinsurance
         self.moop = moop
         self.pcp_copay = pcp_copay
-        self.sps_copay = sps_copay
+        self.spc_copay = spc_copay
         self.er_copay = er_copay
         self.annual_rate = None
         self.base_brf = None
@@ -112,7 +112,7 @@ class Plan:
         #return the relativity value
         return copay_data[base_index][copay_amount]
 
-    def calculate_copay_brf(self, pcp_copay_data, sps_copay_data, er_copay_data):
+    def calculate_copay_brf(self, pcp_copay_data, spc_copay_data, er_copay_data):
         """
         Calculate copay BRF by multiplying the relativity values for each copay type.
         """
@@ -121,8 +121,8 @@ class Plan:
         if self.pcp_copay:
             copay_brf *= self.find_copay_relativity(pcp_copay_data, self.pcp_copay)
         
-        if self.sps_copay:
-            copay_brf *= self.find_copay_relativity(sps_copay_data, self.sps_copay)
+        if self.spc_copay:
+            copay_brf *= self.find_copay_relativity(spc_copay_data, self.spc_copay)
         
         if self.er_copay:
             copay_brf *= self.find_copay_relativity(er_copay_data, self.er_copay)
@@ -133,7 +133,7 @@ class Plan:
     #plan brf calculation methods
     def calculate_plan_brf(self, claims_probability_distribution, deductible_threshold_data, 
                           coinsurance_threshold_data, moop_threshold_data, 
-                          pcp_copay_data, sps_copay_data, er_copay_data):
+                          pcp_copay_data, spc_copay_data, er_copay_data):
         """
         Calculate the final plan BRF by automatically computing all intermediate steps.
         This method handles the complete calculation pipeline:
@@ -148,7 +148,7 @@ class Plan:
             coinsurance_threshold_data: Dictionary with coinsurance threshold ranges
             moop_threshold_data: Dictionary with MOOP threshold ranges
             pcp_copay_data: 2D dictionary with PCP copay relativity data
-            sps_copay_data: 2D dictionary with SPS copay relativity data
+            spc_copay_data: 2D dictionary with SPC copay relativity data
             er_copay_data: 2D dictionary with ER copay relativity data
         
         Returns:
@@ -161,7 +161,7 @@ class Plan:
         self.calculate_base_brf(claims_probability_distribution)
         
         #step 3: calculate copay brf (requires indices from step 1)
-        self.calculate_copay_brf(pcp_copay_data, sps_copay_data, er_copay_data)
+        self.calculate_copay_brf(pcp_copay_data, spc_copay_data, er_copay_data)
         
         #step 4: calculate final plan brf
         self.plan_brf = self.base_brf * self.copay_brf

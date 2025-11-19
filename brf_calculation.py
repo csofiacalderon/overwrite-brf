@@ -1,4 +1,8 @@
-def calculate_group_brf(plans, claims_probability_distribution, deductible_threshold_data, coinsurance_threshold_data, moop_threshold_data, pcp_copay_data, sps_copay_data, er_copay_data):
+
+
+
+
+def calculate_group_brf(plans, claims_probability_distribution, deductible_threshold_data, coinsurance_threshold_data, moop_threshold_data, pcp_copay_data, spc_copay_data, er_copay_data):
     total_group_enrollment = 0
     weighted_group_brf = 0
     
@@ -8,7 +12,7 @@ def calculate_group_brf(plans, claims_probability_distribution, deductible_thres
         coinsurance_threshold_data, 
         moop_threshold_data, 
         pcp_copay_data, 
-        sps_copay_data, 
+        spc_copay_data, 
         er_copay_data)
 
         weighted_group_brf += plan.plan_brf * plan.total_enrollment
